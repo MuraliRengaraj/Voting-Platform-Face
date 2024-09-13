@@ -1,0 +1,513 @@
+/* static/css/styles.css */
+/* General Styles */
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+
+.index header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+
+.index header h1 {
+    margin: 0;
+}
+
+
+.index main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.index .intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+.index .intro h2 {
+    margin-top: 0;
+}
+
+
+.result .messages,.index .messages {
+    background: #e7f1ff;
+    border: 1px solid #b3d4fc;
+    border-radius: 8px;
+    padding: 1rem;
+    max-width: 600px;
+    margin: 1rem auto;
+}
+
+.result .messages ul,.index .messages ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.result .messages li,.index .messages li {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+}
+
+.index footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.index nav {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.index nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.index nav ul li {
+    margin: 0 1rem;
+    position: relative;
+}
+
+.index nav .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.index nav .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #ffd700;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.index nav .nav-link:hover {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+.index nav .nav-link:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+.index nav .nav-link.active {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.index nav .nav-link.active::before {
+    width: 100%;
+    left: 0;
+}
+
+.index .button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+    margin: 2rem 0;
+}
+
+.index .btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.index .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.result .btn-click {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #41668d;
+    border: 1px solid #fff;
+}
+
+.result .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.result .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+/* result */
+
+.result {
+    max-width: 600px;
+    margin: 0px auto;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        color: #9f5050;
+    }
+    50% {
+        transform: scale(1.1);
+        color: #8dbaeb;
+    }
+    100% {
+        transform: scale(1);
+        color: #8b2828;
+    }
+}
+
+.animated-heading {
+    font-size: 3rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make text bold */
+    text-align: center; /* Center align text */
+    color: #333; /* Initial text color */
+    animation: pulse 2s infinite; /* Apply the pulse animation */
+}
+
+.back-to-home {
+    color: #007bff; /* Blue color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    padding: 8px 16px; /* Add padding */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #f8f9fa; /* Light background color */
+    border: 1px solid #007bff; /* Blue border */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.back-to-home:hover {
+    background-color: #007bff; /* Change background on hover */
+    color: #ffffff; /* White text on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+
+
+/* capture */
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+/* Ensure full viewport height */
+.register,.login {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Center the login form */
+.register-container ,.login-container {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem 3.5rem 2rem 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style the headings */
+.register-container h1,.login-container h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Style the flash messages */
+.register-container .flash,.login-container .flash {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.register-container .flash.success ,.login-container .flash.success {
+    background-color: #28a745;
+}
+
+.register-container .flash.danger,.login-container .flash.danger {
+    background-color: #dc3545;
+}
+
+/* Style the form elements */
+.register-container .form-group,.login-container .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.register-container label,.login-container label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.register-container  input[type="text"],.register-container  input[type="tel"],
+.login-container input[type="text"],
+.register-container input[type="password"],.login-container input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.train-container span, .compare-container span{
+    color: #ff0000;
+}
+
+/* Base styles for form elements */
+.train-container select,
+.train-container input[type="date"],
+.train-container input[type="tel"],
+.train-container input[type="text"] {
+    width: 100%; /* Full width of the container */
+    padding: 0.5rem; /* Padding inside the input fields */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-sizing: border-box; /* Ensures padding and border are included in the total width */
+    font-size: 1rem; /* Standard font size */
+    color: #333; /* Darker text color */
+    background-color: #fff; /* White background */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Style for select options */
+.train-container select option {
+    padding: 0.5rem; /* Padding inside each option */
+}
+
+/* Hover state for inputs and selects */
+.train-container select:hover,
+.train-container input[type="date"]:hover,
+.train-container input[type="tel"]:hover,
+.train-container input[type="text"]:hover {
+    border-color: #007bff; /* Change border color on hover */
+}
+
+/* Focus state for inputs and selects */
+.train-container select:focus,
+.train-container input[type="date"]:focus,
+.train-container input[type="tel"]:focus,
+.train-container input[type="text"]:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+
+
+/* Placeholder text styles */
+.train-container input::placeholder {
+    color: #999; /* Light grey placeholder text */
+    opacity: 1; /* Ensure full opacity for placeholder text */
+}
+
+.compare-container{
+    display: grid;
+    grid-template-columns:auto auto;
+}
+.compare-container .user_data {
+    inline-size: 100%;
+    border-collapse: collapse;
+    color: #1a3636;
+    margin-top: 10px;
+  }
+  .compare-container .user_data td {
+    padding: 5px;
+    vertical-align: top;
+    font-size: 16px;
+  }
+  .compare-container .user_data .label {
+    inline-size: 150px; /* Adjust as needed */
+  }
+
+  .compare-container  input[type="text"]{
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        color: #FD746C;
+  }
+  .compare-container  input[type="text"]:focus{
+        
+  }
+  .compare-container  input[type="text"]:focus{
+        outline:1.5px dotted #FD746C;
+  }
+  .compare-container  input[type="submit"]{
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2C3E50;
+    color: #FD746C;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s;
+    border-radius: 30px;
+    font-weight: bolder;
+  }
+  .compare-container  input[type="submit"]:hover{
+    background-color: #FD746C;
+    color: #2C3E50;
+  }
+
+
+.register-container input[type="submit"],.login-container input[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.register-container input[type="submit"]:hove,.login-container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style the password visibility toggle */
+.register-container .show-password,.login-container .show-password {
+    cursor: pointer;
+    color: #007bff;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Style the register link */
+.register-container .register-link,.login-container .register-link {
+    display: block;
+    margin-top: 1rem;
+    color: #007bff;
+}
+
+.register-container .register-link:hover,.login-container .register-link:hover {
+    text-decoration: underline;
+}
+
+.flash-messages div {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.flash-messages .success {
+    background-color: #4CAF50; 
+}
+
+.flash-messages .error {
+    background-color: #f44336;
+}
+
+.flash-messages .info {
+    background-color: #2196F3; 
+}
+
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Comparing Voter Identities with Face Recognition</h1>
+    </header>
+    <main>
+        <div class="compare-container">
+            <div class="fetchById">
+                {% if user_data %}
+                <form method="post">
+                    <div class="form-group">
+                        <label for="id">Voter ID:</label>
+                        <input type="text" id="id" name="id" value="{{ user_data['voter_id'] }}" required>
+                    </div>
+                    <input type="submit" value="Fetch">
+                </form>
+                <table class="user_data">
+                    <tr>
+                      <td class="label"><b>Voter Id</b></td>
+                      <td>{{ user_data["voter_id"] }}</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><b>Name</b></td>
+                      <td>{{ user_data["voter_name"] }}</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><b>Phone Number</b></td>
+                      <td>{{ user_data["voter_phone_number"] }}</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><b>Father Name</b></td>
+                      <td>{{ user_data["voter_father_name"] }}</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><b>Gender</b></td>
+                      <td>{{ user_data["voter_Gender"] }}</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><b>Date of Birth</b></td>
+                      <td>{{ user_data["voter_dob"] }}</td>
+                    </tr>
+                  </table>
+                <form method="post">
+                    <input type="text" value="cancel" name="cancel" hidden required>
+                    <input type="submit" value="Cancel">
+                </form>
+                {% else %}
+                <form method="post">
+                    <div class="form-group">
+                        <label for="id">Voter ID:<span>*</span></label>
+                        <input type="text" id="id" name="id" required>
+                    </div>
+                    <input type="submit" value="Fetch">
+                </form>
+                {% endif %}
+            </div>
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="flash-messages">
+                            {% for category, message in messages %}
+                                <div class="{{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                {% if remaining_attempts!=None and remaining_attempts!=0  %}
+                <p>You have {{ remaining_attempts }} chance(s) left.</p>
+                {% endif%}
+                {% if remaining_attempts==0 %}
+                <p>You have {{ remaining_attempts }} chance(s) left.</p>
+                <script>
+                    document.addEventListener('DOMContentLoaded', (event) => {
+            var compareButton = document.getElementById('compare-button');
+            compareButton.disabled = true;
+            compareButton.style.backgroundColor = '#d3d3d3';  // Light gray color
+            compareButton.style.cursor = 'not-allowed';
+        });
+                </script>
+                {% endif%}
+                <form id="compareForm" method="post">
+                    <div class="form-group">
+                        <label for="face_image">Face Image:</label>
+                        <div id="cameraContainer">
+                            <video id="video" width="640" height="480" autoplay></video>
+                            <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+                        </div>
+                        <button type="button" id="capture">Capture Face Image</button>
+                        <button type="button" id="retake" style="display: none;">Retake</button>
+                        <input type="hidden" id="face_image" name="face_image">
+                    </div>
+                    <div class="form-group">
+                        <label>Captured Image:</label>
+                        <img id="capturedImage" src="" alt="Captured Face Image" style="display: none; inline-size: 640px; block-size: 480px; border: 1px solid #ddd; margin-block-start: 10px;">
+                    </div>
+                    <button id="compare-button" type="submit">Compare</button>
+                </form>
+                <a href="{{ url_for('index') }}" class="back-link">Back to Home</a>
+            </div>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/capture.js') }}"></script>
+</body>
+</html>

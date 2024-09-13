@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login">
+        <div class="login-container">
+            <h1>Login</h1>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form method="POST">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="show-password" onclick="togglePassword('password', this)">Show</span>
+                </div>
+    
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+    <script>
+        function togglePassword(id, element) {
+            var passwordField = document.getElementById(id);
+            var type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+            element.textContent = type === 'password' ? 'Show' : 'Hide';
+        }
+    </script>
+</body>
+</html>

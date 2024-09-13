@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biometric Authentication System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="index">
+    <header>
+        <h1>Biometric-Based Voting Authentication System</h1>
+        <nav>
+            <ul>
+                {% if 'username' in session %}
+                    <li><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}" class="nav-link">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Welcome to the Biometric-Based Voting Authentication System</h2>
+            <p>
+                Our Biometric-Based Voting Authentication System aims to revolutionize the voting process by enhancing security and integrity through advanced biometric technology. By leveraging unique biometric identifiers such as facial recognition and fingerprint scanning, our system ensures that only eligible voters can cast their ballots, thereby preventing voter fraud and maintaining the sanctity of elections. This cutting-edge approach to voter authentication not only streamlines the voting process but also provides a robust and reliable method for verifying voter identities, ensuring a fair and transparent electoral process for all
+            </p>
+        </section>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <section class="messages">
+                <div class="flash {{ category }}">{{ message }}</div>
+            </section>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        
+<!-- 
+        <section class="button-grid">
+            <a href="{{ url_for('train') }}" class="btn">Train</a>
+            <a href="{{ url_for('compare') }}" class="btn">Compare</a>
+        </section>
+
+        <section class="messages">
+            <ul>
+                <li>You are already authenticated. You are eligible to vote.</li>
+            </ul>
+        </section>
+ -->
+<section class="button-grid">
+    <a href="{{ url_for('train') }}" class="btn">Train</a>
+    <a href="{{ url_for('compare') }}" class="btn">Compare</a>
+</section>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Biometric-Based Voting Authentication System. All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>
